@@ -195,6 +195,82 @@ restService.post("/slack-test", function(req, res) {
   });
 });
 
+restService.post("/accountActivity", function(req, res) {
+  var accountActivity = {
+        "activityDate": "2018-01-28T00:00:00-05:00",
+        "activityType": "Employee Contribution",
+        "amount": 302.76,
+        "balance": 61869.89,
+        "id": 1,
+        "name": "Srini"
+    },
+    {
+        "activityDate": "2018-02-01T00:00:00-05:00",
+        "activityType": "Employee Contribution",
+        "amount": 302.76,
+        "balance": 7069.89,
+        "id": 2,
+        "name": "Srini"
+    },
+    {
+        "activityDate": "2018-01-01T00:00:00-05:00",
+        "activityType": "Employee Contribution",
+        "amount": 302.76,
+        "balance": 65869.89,
+        "id": 3,
+        "name": "Srini"
+    },
+    {
+        "activityDate": "2017-12-15T00:00:00-05:00",
+        "activityType": "Employee Contribution",
+        "amount": 302.76,
+        "balance": 60869.89,
+        "id": 4,
+        "name": "Srini"
+    },
+    {
+        "activityDate": "2017-11-01T00:00:00-04:00",
+        "activityType": "Employee Contribution",
+        "amount": 302.76,
+        "balance": 55869.89,
+        "id": 5,
+        "name": "Srini"
+    },
+    {
+        "activityDate": "2016-12-01T00:00:00-05:00",
+        "activityType": "Employee Contribution",
+        "amount": 302.76,
+        "balance": 50869.89,
+        "id": 6,
+        "name": "Srini"
+    },
+    {
+        "activityDate": "2016-11-01T00:00:00-04:00",
+        "activityType": "Employee Contribution",
+        "amount": 302.76,
+        "balance": 45869.89,
+        "id": 7,
+        "name": "Srini"
+    },
+    {
+        "activityDate": "2016-10-01T00:00:00-04:00",
+        "activityType": "Employee Contribution",
+        "amount": 302.76,
+        "balance": 41869.89,
+        "id": 8,
+        "name": "Srini"
+    };
+  return res.json({
+    speech: "speech",
+    displayText: "AccountActivity",
+    source: "Account-Activity",
+    data: {
+      slack: accountActivity
+    }
+  });
+});
+
+
 restService.listen(process.env.PORT || 8000, function() {
   console.log("Server up and listening");
 });
