@@ -196,7 +196,7 @@ restService.post("/slack-test", function(req, res) {
 });
 
 restService.post("/accountActivity", function(req, res) {
-  var accountActivity = {
+  var accountActivity = [{
         "activityDate": "2018-01-28T00:00:00-05:00",
         "activityType": "Employee Contribution",
         "amount": 302.76,
@@ -259,7 +259,7 @@ restService.post("/accountActivity", function(req, res) {
         "balance": 41869.89,
         "id": 8,
         "name": "Srini"
-    };
+    }];
   return res.json({
     speech: "speech",
     displayText: "AccountActivity",
