@@ -197,15 +197,22 @@ restService.post("/slack-test", function(req, res) {
 
 restService.post("/accountActivity", function(req, res) {
   var speech = "Seems like some problem. Speak again.";
-    if (req.body.result && req.body.result.parameters) {
+  var date = "";
+  var activityType = "";
+	if (req.body.result && req.body.result.parameters) {
 		if (req.body.result.parameters.echoText) {
 			speech = req.body.result.parameters.echoText;
 		}
 		if (req.body.result.parameters.beforeDate) {
-			speech = speech + " Date Entered: " + req.body.result.parameters.beforeDate;
+			date = req.body.result.parameters.beforeDate;
+		}
+		if (req.body.result.parameters.activityType) {
+			activityType = req.body.result.parameters.activityType;
 		}
 	}
     
+	speech = "Default Speech : " + speech + "Activity Date Entered : " + date + "Activity Type Entered : " + activityType
+	
 	  
   var accountActivity = [{
         "activityDate": "2018-01-28T00:00:00-05:00",
