@@ -196,12 +196,17 @@ restService.post("/slack-test", function(req, res) {
 });
 
 restService.post("/accountActivity", function(req, res) {
-  var speech =
-    req.body.result &&
-    req.body.result.parameters &&
-    req.body.result.parameters.echoText
-      ? req.body.result.parameters.echoText
-      : "Seems like some problem. Speak again.";
+  var speech = "Seems like some problem. Speak again.";
+    if (req.body.result && req.body.result.parameters) {
+		if (req.body.result.parameters.echoText) {
+			speech = req.body.result.parameters.echoText;
+		}
+		if (req.body.result.parameters.beforeDate) {
+			speech = speech + " Date Entered: " + req.body.result.parameters.beforeDate;
+		}
+	}
+    
+	  
   var accountActivity = [{
         "activityDate": "2018-01-28T00:00:00-05:00",
         "activityType": "Employee Contribution",
