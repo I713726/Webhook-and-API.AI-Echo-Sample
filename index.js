@@ -265,7 +265,7 @@ restService.post("/accountActivity", function(req, res) {
     displayText: "AccountActivity",
     source: "Account-Activity",
     data: {
-      slack: accountActivity
+      accountActivity: accountActivity
     }
   });
 });
