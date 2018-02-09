@@ -214,71 +214,93 @@ restService.post("/accountActivity", function(req, res) {
     
 	speech = "Default Speech : " + speech + "Activity Date Entered : " + date + "Activity Type Entered : " + activityType
 	
-	  
-  var accountActivity = [{
-        "activityDate": "2018-01-28",
-        "activityType": "Employee Contribution",
-        "amount": 302.76,
-        "balance": 61869.89,
-        "id": 1,
-        "name": "Srini"
-    },
-    {
-        "activityDate": "2018-02-01",
-        "activityType": "Employee Contribution",
-        "amount": 302.76,
-        "balance": 7069.89,
-        "id": 2,
-        "name": "Srini"
-    },
-    {
-        "activityDate": "2018-01-01",
-        "activityType": "Employee Contribution",
-        "amount": 302.76,
-        "balance": 65869.89,
-        "id": 3,
-        "name": "Srini"
-    },
-    {
-        "activityDate": "2017-12-15",
-        "activityType": "Employee Contribution",
-        "amount": 302.76,
-        "balance": 60869.89,
-        "id": 4,
-        "name": "Srini"
-    },
-    {
-        "activityDate": "2017-11-01",
-        "activityType": "Employee Contribution",
-        "amount": 302.76,
-        "balance": 55869.89,
-        "id": 5,
-        "name": "Srini"
-    },
-    {
-        "activityDate": "2016-12-01",
-        "activityType": "Employee Contribution",
-        "amount": 302.76,
-        "balance": 50869.89,
-        "id": 6,
-        "name": "Srini"
-    },
-    {
-        "activityDate": "2016-11-01",
-        "activityType": "Employee Contribution",
-        "amount": 302.76,
-        "balance": 45869.89,
-        "id": 7,
-        "name": "Srini"
-    },
-    {
-        "activityDate": "2016-10-01",
-        "activityType": "Employee Contribution",
-        "amount": 302.76,
-        "balance": 41869.89,
-        "id": 8,
-        "name": "Srini"
-    }];
+	var accountActivity = [];
+	if (activityType && activityType == 'Contributions') {
+		accountActivity = [{
+			"activityDate": "2018-01-28",
+			"activityType": "Employee Contribution",
+			"amount": 302.76,
+			"balance": 61869.89,
+			"id": 1,
+			"name": "Srini"
+		},
+		{
+			"activityDate": "2018-02-01",
+			"activityType": "Employee Contribution",
+			"amount": 302.76,
+			"balance": 7069.89,
+			"id": 2,
+			"name": "Srini"
+		}];
+	} else if (activityType && activityType == 'Dividends') {
+		accountActivity = [{
+			"activityDate": "2018-01-01",
+			"activityType": "Dividends",
+			"amount": 302.76,
+			"balance": 65869.89,
+			"id": 3,
+			"name": "Srini"
+		},
+		{
+			"activityDate": "2017-12-15",
+			"activityType": "Dividends",
+			"amount": 302.76,
+			"balance": 60869.89,
+			"id": 4,
+			"name": "Srini"
+		}];
+	} else if (activityType && activityType == 'Loans') {
+		accountActivity = [{
+			"activityDate": "2017-11-01",
+			"activityType": "Loans",
+			"amount": 302.76,
+			"balance": 55869.89,
+			"id": 5,
+			"name": "Srini"
+		},
+		{
+			"activityDate": "2016-12-01",
+			"activityType": "Loans",
+			"amount": 302.76,
+			"balance": 50869.89,
+			"id": 6,
+			"name": "Srini"
+		}];
+	} else if (activityType && activityType == 'Transfers') {
+		accountActivity = [{
+			"activityDate": "2016-11-01",
+			"activityType": "Transfers",
+			"amount": 302.76,
+			"balance": 45869.89,
+			"id": 7,
+			"name": "Srini"
+		},
+		{
+			"activityDate": "2016-10-01",
+			"activityType": "Transfers",
+			"amount": 302.76,
+			"balance": 41869.89,
+			"id": 8,
+			"name": "Srini"
+		}];
+	} else if (activityType && activityType == 'Withdrawls') {
+		accountActivity = [{
+			"activityDate": "2016-11-01",
+			"activityType": "Withdrawls",
+			"amount": 302.76,
+			"balance": 45869.89,
+			"id": 7,
+			"name": "Srini"
+		},
+		{
+			"activityDate": "2016-10-01",
+			"activityType": "Withdrawls",
+			"amount": 302.76,
+			"balance": 41869.89,
+			"id": 8,
+			"name": "Srini"
+		}];
+	}
 	
 	//This is to call another web service running 
 	//var productsData = "";
@@ -294,7 +316,7 @@ restService.post("/accountActivity", function(req, res) {
     displayText: "AccountActivity",
     source: "Account-Activity",
     data: {
-      accountActivity: res.productsData
+      accountActivity: accountActivity
     }
   });
 });
