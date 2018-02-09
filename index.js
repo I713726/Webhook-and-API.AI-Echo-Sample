@@ -220,85 +220,65 @@ restService.post("/accountActivity", function(req, res) {
 			"activityDate": "2018-01-28",
 			"activityType": "Employee Contribution",
 			"amount": 302.76,
-			"balance": 61869.89,
-			"id": 1,
-			"name": "Srini"
+			"balance": 61869.89
 		},
 		{
 			"activityDate": "2018-02-01",
 			"activityType": "Employee Contribution",
 			"amount": 302.76,
-			"balance": 7069.89,
-			"id": 2,
-			"name": "Srini"
+			"balance": 7069.89
 		}];
 	} else if (activityType && activityType == 'Dividends') {
 		accountActivity = [{
 			"activityDate": "2018-01-01",
 			"activityType": "Dividends",
 			"amount": 302.76,
-			"balance": 65869.89,
-			"id": 3,
-			"name": "Srini"
+			"balance": 65869.89
 		},
 		{
 			"activityDate": "2017-12-15",
 			"activityType": "Dividends",
 			"amount": 302.76,
-			"balance": 60869.89,
-			"id": 4,
-			"name": "Srini"
+			"balance": 60869.89
 		}];
 	} else if (activityType && activityType == 'Loans') {
 		accountActivity = [{
 			"activityDate": "2017-11-01",
 			"activityType": "Loans",
 			"amount": 302.76,
-			"balance": 55869.89,
-			"id": 5,
-			"name": "Srini"
+			"balance": 55869.89
 		},
 		{
 			"activityDate": "2016-12-01",
 			"activityType": "Loans",
 			"amount": 302.76,
-			"balance": 50869.89,
-			"id": 6,
-			"name": "Srini"
+			"balance": 50869.89
 		}];
 	} else if (activityType && activityType == 'Transfers') {
 		accountActivity = [{
 			"activityDate": "2016-11-01",
 			"activityType": "Transfers",
 			"amount": 302.76,
-			"balance": 45869.89,
-			"id": 7,
-			"name": "Srini"
+			"balance": 45869.89
 		},
 		{
 			"activityDate": "2016-10-01",
 			"activityType": "Transfers",
 			"amount": 302.76,
-			"balance": 41869.89,
-			"id": 8,
-			"name": "Srini"
+			"balance": 41869.89
 		}];
 	} else if (activityType && activityType == 'Withdrawls') {
 		accountActivity = [{
 			"activityDate": "2016-11-01",
 			"activityType": "Withdrawls",
 			"amount": 302.76,
-			"balance": 45869.89,
-			"id": 7,
-			"name": "Srini"
+			"balance": 45869.89
 		},
 		{
 			"activityDate": "2016-10-01",
 			"activityType": "Withdrawls",
 			"amount": 302.76,
-			"balance": 41869.89,
-			"id": 8,
-			"name": "Srini"
+			"balance": 41869.89
 		}];
 	}
 	
