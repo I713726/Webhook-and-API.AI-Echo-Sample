@@ -2,6 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+var request = require('request');
 
 const restService = express();
 
@@ -215,7 +216,7 @@ restService.post("/accountActivity", function(req, res) {
 	
 	  
   var accountActivity = [{
-        "activityDate": "2018-01-28T00:00:00-05:00",
+        "activityDate": "2018-01-28",
         "activityType": "Employee Contribution",
         "amount": 302.76,
         "balance": 61869.89,
@@ -223,7 +224,7 @@ restService.post("/accountActivity", function(req, res) {
         "name": "Srini"
     },
     {
-        "activityDate": "2018-02-01T00:00:00-05:00",
+        "activityDate": "2018-02-01",
         "activityType": "Employee Contribution",
         "amount": 302.76,
         "balance": 7069.89,
@@ -231,7 +232,7 @@ restService.post("/accountActivity", function(req, res) {
         "name": "Srini"
     },
     {
-        "activityDate": "2018-01-01T00:00:00-05:00",
+        "activityDate": "2018-01-01",
         "activityType": "Employee Contribution",
         "amount": 302.76,
         "balance": 65869.89,
@@ -239,7 +240,7 @@ restService.post("/accountActivity", function(req, res) {
         "name": "Srini"
     },
     {
-        "activityDate": "2017-12-15T00:00:00-05:00",
+        "activityDate": "2017-12-15",
         "activityType": "Employee Contribution",
         "amount": 302.76,
         "balance": 60869.89,
@@ -247,7 +248,7 @@ restService.post("/accountActivity", function(req, res) {
         "name": "Srini"
     },
     {
-        "activityDate": "2017-11-01T00:00:00-04:00",
+        "activityDate": "2017-11-01",
         "activityType": "Employee Contribution",
         "amount": 302.76,
         "balance": 55869.89,
@@ -255,7 +256,7 @@ restService.post("/accountActivity", function(req, res) {
         "name": "Srini"
     },
     {
-        "activityDate": "2016-12-01T00:00:00-05:00",
+        "activityDate": "2016-12-01",
         "activityType": "Employee Contribution",
         "amount": 302.76,
         "balance": 50869.89,
@@ -263,7 +264,7 @@ restService.post("/accountActivity", function(req, res) {
         "name": "Srini"
     },
     {
-        "activityDate": "2016-11-01T00:00:00-04:00",
+        "activityDate": "2016-11-01",
         "activityType": "Employee Contribution",
         "amount": 302.76,
         "balance": 45869.89,
@@ -271,19 +272,29 @@ restService.post("/accountActivity", function(req, res) {
         "name": "Srini"
     },
     {
-        "activityDate": "2016-10-01T00:00:00-04:00",
+        "activityDate": "2016-10-01",
         "activityType": "Employee Contribution",
         "amount": 302.76,
         "balance": 41869.89,
         "id": 8,
         "name": "Srini"
     }];
+	
+	//This is to call another web service running 
+	//var productsData = "";
+	//request.get({ url: "http://localhost:9080/restservice/webapi/productcatalog/search/name/keyboard" },      function(error, response, body) { 
+      //        if (!error && response.statusCode == 200) {
+		//		  console.log(body);
+          //        productsData = body; 
+           //     } 
+             //});
+	
   return res.json({
     speech: speech,
     displayText: "AccountActivity",
     source: "Account-Activity",
     data: {
-      accountActivity: accountActivity
+      accountActivity: res.productsData
     }
   });
 });
