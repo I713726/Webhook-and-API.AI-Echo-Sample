@@ -214,8 +214,12 @@ restService.post("/accountActivity", function(req, res) {
     
 	speech = "Default Speech : " + speech + "Activity Date Entered : " + date + "Activity Type Entered : " + activityType
 	
-	var accountActivity = [];
-	if (activityType && activityType == 'Contributions') {
+	var accountActivity = [{
+		"activityType" : activityType,
+		"activityDate" : date,
+		"activityDays" : "30"
+	}];
+	/*if (activityType && activityType == 'Contributions') {
 		accountActivity = [{
 			"activityDate": "2018-01-28",
 			"activityType": "Employee Contribution",
@@ -280,7 +284,7 @@ restService.post("/accountActivity", function(req, res) {
 			"amount": 302.76,
 			"balance": 41869.89
 		}];
-	}
+	}*/
 	
 	//This is to call another web service running 
 	//var productsData = "";
