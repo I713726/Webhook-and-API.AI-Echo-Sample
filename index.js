@@ -200,6 +200,8 @@ restService.post("/accountActivity", function(req, res) {
   var speech = "Seems like some problem. Speak again.";
   var date = "";
   var activityType = "";
+  var numDays = "";
+  var dateType = "";
 	if (req.body.result && req.body.result.parameters) {
 		if (req.body.result.parameters.echoText) {
 			speech = req.body.result.parameters.echoText;
@@ -210,14 +212,22 @@ restService.post("/accountActivity", function(req, res) {
 		if (req.body.result.parameters.activityType) {
 			activityType = req.body.result.parameters.activityType;
 		}
+		if (req.body.result.parameters.numDays) {
+			numDays = req.body.result.parameters.numDays;
+		}
+		if (req.body.result.parameters.dateType) {
+			dateType = req.body.result.parameters.dateType;
+		}
 	}
     
-	speech = "Default Speech : " + speech + "Activity Date Entered : " + date + "Activity Type Entered : " + activityType
+	speech = "Default Speech : " + speech + "##Activity Date Entered : " + date + "##Activity Type Entered : " + 
+	activityType + "##Activity Days Entered : " + numDays + "##Activity Date Type Entered : " + dateType;
 	
 	var accountActivity = [{
 		"activityType" : activityType,
 		"activityDate" : date,
-		"activityDays" : "30"
+		"activityDays" : numDays,
+		"activityDateType" : dateType
 	}];
 	/*if (activityType && activityType == 'Contributions') {
 		accountActivity = [{
